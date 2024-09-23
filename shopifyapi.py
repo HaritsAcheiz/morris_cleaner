@@ -1468,7 +1468,7 @@ class ShopifyApp:
 
 
     async def async_delete_products(self):
-        df = pd.read_csv('./data/need_to_drop_with_id.csv')
+        df = pd.read_csv('./data/need_to_choose_with_id.csv')
         product_ids = df['id'].to_list()
         await self.delete_products(product_ids)
 
@@ -1623,6 +1623,16 @@ if __name__ == '__main__':
     # extracted_product_ids = [x['node'] for x in product_ids]
     # product_id_handle_df = pd.DataFrame.from_records(extracted_product_ids)
     # product_id_handle_df.to_csv('data/need_to_drop_with_id.csv', index=False)
+
+    # df = pd.read_csv('./data/need_to_choose.csv')
+    # chunked_handles = get_handles(df)
+    # product_ids = list()
+    # for handles in chunked_handles:
+    #     product_ids.extend(s.get_products_id_by_handle(client, handles=handles)['data']['products']['edges'])
+    # print(f'count:{len(product_ids)}')
+    # extracted_product_ids = [x['node'] for x in product_ids]
+    # product_id_handle_df = pd.DataFrame.from_records(extracted_product_ids)
+    # product_id_handle_df.to_csv('data/need_to_choose_with_id.csv', index=False)
 
 
     # ============================================get inventories===============================
